@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <DDA/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import DDA from './components/DDA'
+  // import DDA from './components/DDA'
+  // import DDA from './components/Bresenham'
 
   export default {
     name: 'App',
     components: {
-      DDA,
+      // DDA,
     }
   }
 </script>

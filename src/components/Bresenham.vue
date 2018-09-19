@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1>DDA</h1>
+    <h1>Bresenham</h1>
     <div class="points">
       <div class="point">
         <h2>起点</h2>
@@ -51,17 +51,27 @@
       }
     },
     methods: {
-      getLine(x1, y1, x2, y2) {
-        let step = Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2))
-        let dx = (x2 - x1) / step
-        let dy = (y2 - y1) / step
-
-        let points = [[x1, y1]]
-        while (Math.abs(x1 - x2) >= 1e-5) {
-          x1 += dx
-          y1 += dy
-          points.push([Math.round(x1), Math.round(y1)])
-          console.log(x1, y1, x2, y2)
+      // 默认斜率小于1
+      getLine(x0, y0, x1, y1) {
+        let dx = Math.abs(x1 - x0)
+        let sx = x0 < x1 ? 1 : -1
+        let dy = Math.abs(y1 - y0)
+        let sy = y0 < y1 ? 1 : -1
+        let err = (dx > dy ? dx : -dy) / 2
+        let points = [[x0, y0]]
+        for (; ;) {
+          if (x0 == x1 && y0 == y1) break;
+          let e2 = err;
+          console.log(e2, err, x0, y0)
+          if (e2 > -dx) {
+            err -= dy;
+            x0 += sx;
+          }
+          if (e2 <= dy) {
+            err += dx;
+            y0 += sy;
+          }
+          points.push([x0, y0])
         }
         return points
       },
