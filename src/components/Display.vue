@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>计算机图形学</h1>
+    <h2>--阿豪</h2>
     <a class="link" :href="'#/'+i.url" v-for='i,k in list'>
       {{k+1}}, {{i.title}}
     </a>

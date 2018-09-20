@@ -2,12 +2,17 @@
 
 > A Vue.js project
 
+更新
+加入vue router
+更新代码结构
+可选择展示不同的算法
+![展示页面](imgs/display.png)
 
 ## dda 算法可视化
 效果
-![效果图](img.png)
+![效果图](imgs/img.png)
 动图
-![动态图](img.gif)
+![动态图](imgs/img.gif)
 可以查看点的生成顺序和点的坐标变化
 ## Build Setup
 
